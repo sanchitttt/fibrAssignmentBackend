@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
 app.use('/user', userRoutes);
 app.use('/quiz', quizRoutes);
 
+
 //Error handler
 app.use((err, req, res, next) => {
     res.status(err.status).json(err);

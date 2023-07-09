@@ -33,6 +33,17 @@ const questionSchema = new mongoose.Schema({
     updatedAt: Date
 })
 
+
+const answerSchema = new mongoose.Schema({
+    type: String,
+    answer: String
+})
+const responseSchema = new mongoose.Schema({
+    answers: [answerSchema],
+    scoreGained: Number,
+    submittedBy: String
+})
+
 const quizSchema = new mongoose.Schema({
     quizName: String,
     createdBy: String,
@@ -46,7 +57,11 @@ const quizSchema = new mongoose.Schema({
     questions: {
         type: [questionSchema],
         default: []
-    }
+    },
+    responsesDetails: {
+        type: [[responseSchema]],
+        default: []
+    },
 })
 
 
